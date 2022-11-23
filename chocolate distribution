@@ -1,0 +1,30 @@
+import java.util.*;
+public class Main
+{
+    public static int chocolate(int arr[],int n,int m){
+        //base case :
+        Arrays.sort(arr);
+        
+        if(n==0||m==0){
+            return 0;
+        }
+        
+        int min_diff=Integer.MAX_VALUE;
+        for(int i=0;i+m-1<n;i++){
+            int diff=arr[i+m-1]-arr[i];
+            if(diff<min_diff){
+                min_diff=diff;
+            }
+        }
+        return min_diff;
+        
+    }
+    
+	public static void main(String[] args) {
+	int arr[]={2,6,8,9,11,15,18};
+	int n=arr.length;
+	int m=3;
+	int p=chocolate(arr,n,m);
+	System.out.print("minimum chocolate distribution is possible:" + p);
+	}
+}
